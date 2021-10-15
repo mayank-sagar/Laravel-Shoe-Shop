@@ -1,4 +1,5 @@
 @import 'utils';
+@import url('/node_modules/toastify-js/src/toastify.css');
 .product-image-gallery {
     width: 100%;
     display: flex;
@@ -81,6 +82,25 @@
 
 .cart-product-height {
     height: 100%;
+}
+
+
+.cart-menu-item {
+    position: relative;
+    .cart-menu-item-count {
+        display: none;
+        position: absolute;
+        width: 17px;
+        height: 17px;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        background-color: #db5660;
+        border-radius: 50%;
+        right: 10px;
+        top: 10px;
+        font-size: 14px;
+    }
 }
 
 

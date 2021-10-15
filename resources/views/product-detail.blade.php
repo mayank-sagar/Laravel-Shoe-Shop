@@ -30,14 +30,14 @@
             </div>
             <div class="row">
               <div class="col-lg-5 col-sm-3 product-spinner-col">
-                <div class="product-spinner">
+                <div id="product-detail-spinner" class="product-spinner">
                   <button class="product-spinner-add-btn">+</button>
                   <input type="text" class="product-spinner-counter" value="1"/>
                   <button class="product-spinner-remove-btn">-</button>
                 </div>
               </div>
               <div class="col-6">
-                <button class="buy_bt add-to-cart-style">Add to cart</button>
+                <button  data-product-id="{{  $product->id }}" data-action="add_to_cart" class="buy_bt add-to-cart-style">Add to cart</button>
               </div>
             </div>
             </div>

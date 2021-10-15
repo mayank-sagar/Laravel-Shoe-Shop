@@ -12,6 +12,7 @@
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
+      <meta name="csrf-token" content="{{ csrf_token() }}">
       <!-- bootstrap css -->
       <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
       <!-- style css -->

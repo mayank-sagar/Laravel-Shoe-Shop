@@ -19,7 +19,7 @@ class GalleryTableSeeder extends Seeder
     {
         Product::all()->each(function($product) {
             for($i=0;$i < 3;$i++) {
-                $product->galley()->create([
+                $product->gallery()->create([
                     'gallery_image' =>  $this->getRandomImage($product,$i)
                 ]);
             }

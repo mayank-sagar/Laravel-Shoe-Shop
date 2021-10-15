@@ -17,7 +17,7 @@
                            <a class="nav-item nav-link" href="{{ route('home.racing-boots') }}">Racing Boots</a>
                            <a class="nav-item nav-link" href="{{ route('home.contact') }}">Contact</a>
                            <a class="nav-item nav-link last" href="javascript:void(0)"><img src="{{ asset('images/search_icon.png') }}"></a>
-                           <a class="nav-item nav-link last" href="{{ route('cart.list') }}"><img src="{{ asset('images/shop_icon.png') }}"></a>
+                        <x-cart-menu-item></x-cart-menu-item>
                         </div>
                     </div>
                     </nav>

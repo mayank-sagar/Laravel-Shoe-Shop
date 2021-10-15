@@ -18,7 +18,7 @@ class CreateCartItemsTable extends Migration
             $table->integer('product_id');
             $table->integer('status')->default(1);
             $table->integer('quantity');
-            $table->string('cart_id',80)->unique();
+            $table->integer('cart_id');
             $table->timestamps();
         });
     }

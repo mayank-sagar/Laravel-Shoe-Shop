@@ -7,6 +7,9 @@ Route::group(['prefix' => 'cart', 'as'=>'cart.'],function() {
         return view('cart');
     })->name('list');
     Route::post('/add',[CartController::class, 'addProduct'])->name('add');
+    Route::post('/count',[CartController::class, 'getCartCount'])->name('count');
+    Route::post('/store',[CartController::class, 'addProduct'])->name('store');
+
 })
 
 ?>
