@@ -1,0 +1,21 @@
+.add-to-cart-style {
+font-size: 1rem;
+width: 140px;
+}
+
+.product-heading-link {
+    a:hover {
+        color:#db5660 !important;
+    }
+    a {
+        color: inherit !important;
+    }
+}
+
+
+.add-to-cart-shownow-style {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
