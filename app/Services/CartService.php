@@ -26,6 +26,33 @@ class CartService {
             'token' => Str::random(16)
         ]);
     }
+
+    public function getCartItems($token) {
+        if($token) {
+            $cart = Cart::where('token',$token)->firstOrFail();
+            return $cart->items()->with('product')->get();
+        }
+        return [];
+    }
+
+    public function deleteCartItem($inputs) {
+        if(!empty($inputs['token'])) {
+            $cart = Cart::where('token',$inputs['token'])->firstOrFail();
+            return $cart->items()->where('id',$inputs['item_id'])->delete();
+        }
+        return false;
+    }
+
+    public function updateItemQuantity($inputs) {
+        if (!empty($inputs['token'])) {
+            $cart = Cart::where('token',$inputs['token'])->firstOrFail();
+            $item = $cart->items()->findOrFail($inputs['item_id']);
+            $item->quantity = $inputs['quantity'];
+            $item->save();
+            return $item;
+        }
+        return false;
+    }
 }
 
 ?>

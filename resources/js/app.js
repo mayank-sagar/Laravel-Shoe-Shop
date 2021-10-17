@@ -8,10 +8,12 @@ documentReady(() => {
     new ProductSlider();
     const cart = new CartMenuItem();
     cart.syncCart();
+
     const addToCartProduct = new AddToCart();
     const productDetailSpinner = document.getElementById('product-detail-spinner');
     const productSpinner = new ProductSpinner(productDetailSpinner);
     
+    // Add To Cart 
     addToCartProduct.onProductAdded = () => {
         cart.syncCart();
         productSpinner.reset();
@@ -19,6 +21,9 @@ documentReady(() => {
     productSpinner.onValuesChanged = (val) => {
         addToCartProduct.quantity = val;
     }
+
+    
+
     // if(spinners.length > 0) {
     //     spinners.forEach((sinnerDom) => {
     //         new ProductSpinner(sinnerDom);

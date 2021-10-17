@@ -13,4 +13,8 @@ class Product extends Model
         return $this->morphMany(Gallery::class,'gallery');
     }
 
+    public function getMainImageAttribute() {
+        return '/storage/'.$this->image;
+    }
+
 }

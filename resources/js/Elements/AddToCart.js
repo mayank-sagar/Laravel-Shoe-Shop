@@ -6,8 +6,13 @@ class AddToCart {
         this.quantity = 1;
         this.addToCart = document.querySelector('[data-action="add_to_cart"]');
         this.token = localStorage.getItem('cart_token') ? localStorage.getItem('cart_token') : '';
-        this.productId = this.addToCart.getAttribute('data-product-id');
-       
+        this.productId = -1;
+        if(this.addToCart) {
+            this.productId = this.addToCart.getAttribute('data-product-id');
+        }
+        if(this.token) {
+            this.updateCartLink(this.token);
+        }
         this.__addEventListener();    
     }
 
@@ -18,6 +23,12 @@ class AddToCart {
                 this.onProductAdded();
             }
         }
+    }
+
+    updateCartLink(token) {
+        const routeLink = document.querySelector('.cart-menu-item').getAttribute('href');
+        const cartlinkRoute = routeLink.split('?')[0].trim();
+        document.querySelector('.cart-menu-item').setAttribute('href',cartlinkRoute+'?token='+token);
     }
 
     __addEventListener() {
@@ -36,6 +47,7 @@ class AddToCart {
                 if(!this.token) {
                     this.token = token;
                     localStorage.setItem('cart_token',token);
+                    this.updateCartLink(token);
                 }
                 this.publishProductAdded();
             } catch(errRes) {

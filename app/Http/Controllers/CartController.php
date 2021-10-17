@@ -9,8 +9,21 @@ use App\Services\CartService;
 class CartController extends Controller
 {
     private $cartService = null;
+    
     public function __construct(CartService $cartService) {
         $this->cartService = $cartService;
+    }
+
+    function getCartItems(Request $request) {
+        $token = $request->input('token');
+        $cartItems = $this->cartService->getCartItems($token);
+        $totalItems = $cartItems->sum('quantity');
+        $total = $cartItems->reduce(function($carry,$item) {
+             $totalprice= $item->product->price * $item->quantity;
+             $carry += $totalprice;
+             return $carry;
+        },0);
+        return view('cart')->with([ 'items' => $cartItems,'totalItems' => $totalItems,'total' => $total,'cartToken' => $token ? $token : '']);
     }
 
     function addProduct(Request $request) {
@@ -32,4 +45,29 @@ class CartController extends Controller
         }
         return response()->json(['count' => $cartItemsCount],200);
     }
+
+    function deleteCartItem(Request $request) {
+        $request->validate([
+            'item_id' => 'required|integer',
+        ]);
+        $inputs = $request->only(['token','item_id']);
+        $deleted = $this->cartService->deleteCartItem($inputs);
+        if(!empty($inputs['token'])) {
+            return  redirect()->route('cart.list',['token' => $inputs['token']]);    
+        } 
+        return  redirect()->route('cart.list');
+    }
+
+
+    function updateItemQuantity(Request $request) {
+        $request->validate([
+            'item_id' => 'required|integer',
+            'quantity' => 'required|integer',
+        ]);
+        $inputs = $request->only(['token','item_id']);
+        $updatedItem = $this->cartService->updateItemQuantity($inputs);
+        return response()->json(['updatedItem' => $updatedItem ],200);
+    }
+
+
 }
