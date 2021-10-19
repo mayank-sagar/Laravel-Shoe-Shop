@@ -58,7 +58,7 @@
             @if(count($items) > 0) 
                 <div class="row d-flex align-items-end flex-column">
                 <h2>Subtotal ({{$totalItems}} items):   ${{$total}}</h2>
-                <button class="buy_bt add-to-cart-style"> <i class="fa fa-shopping-cart"></i> Checkout</button>
+                <a href="{{ route('shipping-address') }}" class="buy_bt add-to-cart-style"> <i class="fa fa-shopping-cart"></i> Checkout</a>
                 </div>
             @endif
     	    

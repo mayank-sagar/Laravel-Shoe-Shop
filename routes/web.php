@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AddressController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,5 +19,11 @@ Route::get('/', function () {
 
 Route::get('/contact', function () {
     return view('index');
-})->name('home.contact');;
+})->name('home.contact');
 
+
+Route::get('/shipping-address', [AddressController::class,'getShippingAddress'])->name('shipping-address');
+Route::post('/shipping-address', [AddressController::class,'createShippingAddress'])->name('shipping-address.create');
+Route::get('/checkout', function() {
+    return view('checkout');
+})->name('checkout');
