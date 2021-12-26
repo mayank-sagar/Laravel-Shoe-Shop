@@ -21,8 +21,9 @@ class AddressController extends Controller
             'state'=> 'required|max:40',
             'country' => 'required|max:40',
             'pincode'=> 'required|max:20',
-            'contact' => 'required|numeric|digits_between:6,15',
+            'contact' => 'required|numeric|digits_between:6,15'
         ]);
+
         $address = $this->addressService->createAddress($request->only(['address_1','address_2','state','country','pincode','contact']));
         Session::put('shipping_address_id',$address->id);
         return redirect()->route('checkout');

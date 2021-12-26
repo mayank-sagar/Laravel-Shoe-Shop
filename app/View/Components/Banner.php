@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 use Illuminate\Support\Facades\URL;
-
+use App\Services\BannerService;
 class Banner extends Component
 {
     /**
@@ -14,10 +14,13 @@ class Banner extends Component
      */
 
     public $showRoute;
-
-    public function __construct($showRoute)
+    private $bannerService;
+    public $banners;
+    public function __construct(BannerService $bannerService , $showRoute)
     {
         $this->showRoute = $showRoute;
+        $this->bannerService = $bannerService;
+        $this->banners = $this->bannerService->bannerProducts();
     }
 
     public function isShow() {

@@ -17,4 +17,8 @@ class Product extends Model
         return '/storage/'.$this->image;
     }
 
+    public function category() {
+        return $this->hasOne(Category::class,'id','category_id');
+    }
+
 }

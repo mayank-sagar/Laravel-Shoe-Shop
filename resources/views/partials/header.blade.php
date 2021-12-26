@@ -1,5 +1,10 @@
 <div class="header_section">
 		<div class="container">
+        @if(session()->has('message'))
+            <div class="alert alert-success">
+                {{session()->get('message')}}
+            </div>
+        @endif	
 			<div class="row">
 				<div class="col-sm-3">
 					<div class="logo"><a href="{{ route('home.index') }}"><img src="{{ asset('images/logo.png') }}"></a></div>
@@ -11,12 +16,12 @@
                         </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
-                           <a class="nav-item nav-link" href="{{ route('home.index') }}" >Home</a>
-                           <a class="nav-item nav-link" href="{{ route('home.collection') }}" >New Collection</a>
-                           <a class="nav-item nav-link" href="{{ route('home.shoes') }} ">Shoes</a>
-                           <a class="nav-item nav-link" href="{{ route('home.racing-boots') }}">Racing Boots</a>
-                           <a class="nav-item nav-link" href="{{ route('home.contact') }}">Contact</a>
-                           <a class="nav-item nav-link last" href="javascript:void(0)"><img src="{{ asset('images/search_icon.png') }}"></a>
+                           <a class="nav-item nav-link {{ $currentRoute === 'home.index' ? 'active-link': '' }}" href="{{ route('home.index') }}" >Home</a>
+                           <a class="nav-item nav-link {{ $currentRoute === 'home.collection' ? 'active-link': '' }}" href="{{ route('home.collection') }}" >New Collection</a>
+                           <a class="nav-item nav-link {{ $currentRoute === 'home.shoes' ? 'active-link': '' }}" href="{{ route('home.shoes') }} ">Shoes</a>
+                           <a class="nav-item nav-link {{ $currentRoute === 'home.racing-boots' ? 'active-link': '' }}" href="{{ route('home.racing-boots') }}">Racing Boots</a>
+                           <a class="nav-item nav-link {{ $currentRoute === 'home.contact' ? 'active-link': '' }}" href="{{ route('home.contact') }}">Contact</a>
+                           <a class="nav-item nav-link last show-search-panel-btn" href="javascript:void(0)"><img src="{{ asset('images/search_icon.png') }}"></a>
                         <x-cart-menu-item></x-cart-menu-item>
                         </div>
                     </div>
@@ -24,5 +29,6 @@
 				</div>
 			</div>
 		</div>
-<x-banner showRoute="{{route('home.index')}}"></x-banner>
+<x-banner :showRoute="route('home.index')"></x-banner>
+@include("partials.search-panel")
 </div>

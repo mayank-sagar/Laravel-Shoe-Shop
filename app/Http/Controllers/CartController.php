@@ -23,6 +23,7 @@ class CartController extends Controller
              $carry += $totalprice;
              return $carry;
         },0);
+        session()->put('cart_token' , $token);
         return view('cart')->with([ 'items' => $cartItems,'totalItems' => $totalItems,'total' => $total,'cartToken' => $token ? $token : '']);
     }
 
@@ -69,5 +70,6 @@ class CartController extends Controller
         return response()->json(['updatedItem' => $updatedItem ],200);
     }
 
+ 
 
 }

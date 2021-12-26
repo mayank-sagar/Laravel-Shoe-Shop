@@ -60,10 +60,16 @@
     			</div>
     			<div class="col-sm-6 col-lg-2">
     				<h2 class="adderess_text">Newsletter</h2>
-    				<div class="form-group">
-                        <input type="text" class="enter_email" placeholder="Enter Your email" name="Name">
-                    </div>
-                    <button class="subscribr_bt">Subscribe</button>
+    				<form action="{{ route('subscription')}}" method="POST">
+						<div class="form-group">
+						@csrf
+							<input type="text" class="enter_email" placeholder="Enter Your email" name="email">
+							@if($errors->has('email'))
+                                  <div class="text-danger">{{ $errors->first('email') }}</div>
+                            @endif
+						</div>
+						<button type="submit" class="subscribr_bt">Subscribe</button>
+					</form>
     			</div>
     			</div>
     	        </div> 

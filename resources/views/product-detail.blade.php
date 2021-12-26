@@ -25,6 +25,7 @@
               </div>
             <div class="col-sm-12 col-lg-4">
             <h1>{{ $product->product_name }}</h1>
+            <h3>Only <span style="color:#ff4e5b">{{ $product->price }}$</span> </h3>
             <div>
             {{ $product->description }}
             </div>

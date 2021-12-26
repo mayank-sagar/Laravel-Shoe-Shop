@@ -1,6 +1,15 @@
 .add-to-cart-style {
-font-size: 1rem;
-width: 140px;
+    font-size: 1rem;
+    width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    i {
+    margin-right:5px;
+    }
+}
+a.add-to-cart-style:hover {
+    color: #fff !important;
 }
 
 .product-heading-link {
@@ -26,4 +35,10 @@ width: 140px;
 
 .msg-success {
     background: #db5660;
+}
+
+.razor-paybtn {
+    padding: 0.5rem 1rem;
+    background: #040f2b;
+    color: #fff;
 }

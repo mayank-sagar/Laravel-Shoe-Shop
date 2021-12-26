@@ -5,7 +5,7 @@ namespace App\View\Components;
 use Illuminate\View\Component;
 use Illuminate\Support\Facades\URL;
 
-class Banner extends Component
+class CartMenuItem extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class Banner extends Component
      */
     public function render()
     {
-        return view('components.cart-menu-item.blade');
+        return view('components.cart-menu-item');
     }
 }

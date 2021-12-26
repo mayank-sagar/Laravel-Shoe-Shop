@@ -23,4 +23,10 @@ class ProductService {
         $product->image = '/storage/'.$product->image; 
         return $product;
     }
+
+    function search($search) {
+        return Product::where('product_name','like','%'.$search.'%')->get();
+    }
+
+
 }

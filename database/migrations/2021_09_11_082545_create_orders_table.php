@@ -20,6 +20,8 @@ class CreateOrdersTable extends Migration
             $table->float('total_price');
             $table->integer('user_id')->nullable();
             $table->tinyInteger('status')->default(1);
+            $table->string('gateway',50);
+            $table->string('gateway_meta',200);
             $table->timestamps();
         });
     }

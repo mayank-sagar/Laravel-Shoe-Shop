@@ -8,7 +8,7 @@
     <div class="layout_padding collection_section">
     	<div class="container">
     	    <h1 class="new_text"><strong>New  Collection</strong></h1>
-    	    <p class="consectetur_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+    	    <p class="consectetur_text">We’ve taken some inspiration from the key global trends and put our own stamp on them. By focusing on subtle and chic looks, we’ve produced relaxed designs that are as stylish as they are comfortable.</p>
     	    <div class="collection_section_2">
     	    	<div class="row">
 				@foreach($products as $product)
@@ -16,7 +16,9 @@
 				@endforeach
     	    	</div>
 
-				{{$products->links()}}
+		<div class="d-flex justify-content-center my-4">
+		{{$products->links()}}
+		</div>
     	    </div>
     	</div>
     </div>

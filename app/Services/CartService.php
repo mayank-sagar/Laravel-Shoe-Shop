@@ -53,6 +53,13 @@ class CartService {
         }
         return false;
     }
+
+    public function clearCartItems($token) {
+        $cart = Cart::where('token',$token)->first();
+        if($cart) {
+            $cart->items()->delete(); 
+        }
+    }
 }
 
 ?>
