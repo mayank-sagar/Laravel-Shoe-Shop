@@ -123,6 +123,13 @@ a.add-to-cart-style:hover {
   color: #fff;
 }
 
+.site-alert-primary {
+  border-radius: 0px !important;
+  color: #fff !important;
+  background-color: #f74c59 !important;
+  border-color: #f74c59 !important;
+}
+
 .product-image-gallery {
   width: 100%;
   display: flex;

@@ -1,6 +1,6 @@
 @extends('layouts.site')
 
-@section('title','Contact Us')
+@section('title','Shoes | Pullshoes')
     
 @section('content')
 	<!-- New Arrivals section start -->
