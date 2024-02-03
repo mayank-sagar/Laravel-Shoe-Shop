@@ -36,7 +36,7 @@ class ProductFactory extends Factory
   storage_path('app/public').'/products/'.$randomDir.'/'.$imageName);
          return [
             'product_name' => $name,
-            'price' => $this->faker->randomNumber(3, false),
+            'price' => $this->faker->randomNumber(1, false),
             'stock' =>   $this->faker->randomDigitNotNull(),
             'slug' => $slug,
             'image' => 'products/'.$randomDir.'/'.$imageName,
